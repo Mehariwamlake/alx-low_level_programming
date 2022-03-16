@@ -1,9 +1,9 @@
 #include"main.h"
-
 /**
- *  * print_alphabet - utilizes on the _putchar function to print
- *   *                 the alphabet a - z
- *   */
+ *  * print_alphabet - function that prints the alphabet, lowercase
+ *   * You can only use _putchar twice in your code
+ *    * Return: nothing.
+ *     */
 
 void print_alphabet(void)
 {
