@@ -20,4 +20,4 @@ void print_alphabet_x10(void)
 											c = 'a';
 													_putchar ('\n');
 														}
-}1~
+}
