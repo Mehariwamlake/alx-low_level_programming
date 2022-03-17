@@ -1,9 +1,10 @@
 #include"main.h"
+
 /**
- * main - check the code
- *
- * Return: Always 0.
- */
+ *  * main - Prints the alphabetic
+ *   *
+ *    * Return: Always (Success)
+ *     */
 
 void print_alphabet(void)
 {
