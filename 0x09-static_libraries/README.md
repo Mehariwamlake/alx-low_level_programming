@@ -1,15 +1,22 @@
-# Static Libraries
+# 0x08. C - Static libraries
 
-# Learning Objectives
+## Learning Objectives
 
-* What is a static library, how does it work, how to create one, and how to use it
-* Basic usage of `ar`, `ranlib`, `nm`
+General
 
-# Tasks
+- What is a static library, how does it work, how to create one, and how to use it
+- Basic usage of ar, ranlib, nm
 
-## A library is not a luxury but one of the necessities of life
+## Requirements
 
-Create the static library `libholberton.a` containing all the functions listed below:
+- All files are created and compiled on Ubuntu 14.04.4 LTS on gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
+- All files are linted for syntax and style with [Betty](https://github.com/holbertonschool/Betty)
+
+## Tasks
+
+### [0. A library is not a luxury but one of the necessities of life](./libholberton.a)
+
+- Create the static library libholberton.a containing all the functions listed below:
 
 ```
 int _putchar(char c);
@@ -32,12 +39,8 @@ char *_strchr(char *s, char c);
 unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
-```
 
-**Solution:** [libholberton.a](https://github.com/monoprosito/holbertonschool-low_level_programming/blob/master/0x09-static_libraries/libholberton.a), [holberton.h](https://github.com/monoprosito/holbertonschool-low_level_programming/blob/master/0x09-static_libraries/holberton.h)
-
-```
-$ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ ar -t libholberton.a 
+julien@ubuntu:~/0x09. Static Librairies$ ar -t libholberton.a
 0-isupper.o
 0-memset.o
 0-strcat.o
@@ -58,7 +61,7 @@ $ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ ar -t libholberton.a
 6-abs.o
 9-strcpy.o
 _putchar.o
-$ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ nm libholberton.a 
+julien@ubuntu:~/0x09. Static Librairies$ nm libholberton.a
 
 0-isupper.o:
 0000000000000000 T _isupper
@@ -121,7 +124,10 @@ $ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ nm libholberton.a
 _putchar.o:
 0000000000000000 T _putchar
                  U write
-$ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ cat main.c 
+julien@ubuntu:~/0x09. Static Librairies$ cat main.c
+```
+
+```c
 #include "holberton.h"
 
 int main(void)
@@ -129,27 +135,29 @@ int main(void)
     _puts("\"At the end of the day, my goal was to be the best hacker\"\n\t- Kevin Mitnick");
     return (0);
 }
-$ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ gcc main.c -L. -lholberton -o quote
-$ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ ./quote 
+```
+
+```
+julien@ubuntu:~/0x09. Static Librairies$ gcc main.c -L. -lholberton -o quote
+julien@ubuntu:~/0x09. Static Librairies$ ./quote
 "At the end of the day, my goal was to be the best hacker"
     - Kevin Mitnick
-$ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$
 ```
 
-## Without libraries what have we? We have no past and no future
+---
 
-Create a script called `create_static_lib.sh` that creates a static library called `liball.a` from all the `.c` files that are in the current directory.
+### [1. Without libraries what have we? We have no past and no future](./create_static_lib.sh)
 
-**Solution:** [create_static_lib.sh](https://github.com/monoprosito/holbertonschool-low_level_programming/blob/master/0x09-static_libraries/create_static_lib.sh)
+- Create a script called create_static_lib.sh that creates a static library called liball.a from all the .c files that are in the current directory.
 
 ```
-$ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ ls *.c
+julien@ubuntu:~/0x09. Static Librairies$ ls *.c
 0-isupper.c  0-strcat.c  1-isdigit.c  1-strncat.c  2-strlen.c   3-islower.c  3-strcmp.c  4-isalpha.c  5-strstr.c  9-strcpy.c  _putchar.c
 0-memset.c   100-atoi.c  1-memcpy.c   2-strchr.c   2-strncpy.c  3-puts.c     3-strspn.c  4-strpbrk.c  6-abs.c
-$ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ ./create_static_lib.sh 
-$ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ ls *.a
+julien@ubuntu:~/0x09. Static Librairies$ ./create_static_lib.sh
+julien@ubuntu:~/0x09. Static Librairies$ ls *.a
 liball.a
-$ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ ar -t liball.a
+julien@ubuntu:~/0x09. Static Librairies$ ar -t liball.a
 0-isupper.o
 0-memset.o
 0-strcat.o
@@ -170,5 +178,21 @@ $ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$ ar -t liball.a
 6-abs.o
 9-strcpy.o
 _putchar.o
-$ amonkeyprogrammer@ubuntu:~/0x09. Static Librairies$
 ```
+
+---
+
+### 2. Either write something worth reading or do something worth writing
+
+- Write a blog post on C static libraries. It should cover:
+
+  - Why use libraries
+  - How they work
+  - How to create them
+  - How to use them
+
+---
+
+## Author
+
+- **Pierre Beaujuge** - [PierreBeaujuge](https://github.com/PierreBeaujuge)
